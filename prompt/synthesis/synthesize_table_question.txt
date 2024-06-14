@@ -1,0 +1,64 @@
+[Task Description]:
+You will be given a scenario that involves optimization problem. The scenario is organized into a few sections start with "##". 
+Each section contains a few lines of text that describe the scenario. The mathematical formal solution of the scenario is provided in the comments starting with "//".
+Your job is to convert the scenario into a question without missing any information. The question should be clear and concise, and do not expose the mathematical formal solution of the scenario.
+
+
+[Example of converting a Scenario to a Question with table]:
+```scenario
+## Define Variables:
+A company produces five types of widgets: X, Y, Z, W, and V. The company needs to determine how many units of each widget to produce in next week.
+// {"number of units of widget X": "X", "range": "X >= 0", "type": "integer"}
+// {"number of units of widget Y": "Y", "range": "Y >= 0", "type": "integer"}
+// {"number of units of widget Z": "Z", "range": "Z >= 0", "type": "integer"}
+// {"number of units of widget W": "W", "range": "W >= 0", "type": "integer"}
+// {"number of units of widget V": "V", "range": "V >= 0", "type": "integer"}
+
+## Define Objective Function:
+For Widget X, the selling price is $10, the material cost is $5, and the production time is 2 hours. 
+For Widget Y, the selling price is $15, the material cost is $7, and the production time is 3 hours. 
+For Widget Z, the selling price is $20, the material cost is $9, and the production time is 4 hours.
+For Widget W, the selling price is $25, the material cost is $11, and the production time is 5 hours.
+For Widget V, the selling price is $30, the material cost is $13, and the production time is 6 hours.
+The company has only one production line and can only produce one widget at a time. The company aims to maximize the rate at which it earns profits (which is defined as the sum of the selling profit divided by the sum of the production times).
+// Selling profit of X: Profit_X = (10 - 5) * X
+// Selling profit of Y: Profit_Y = (15 - 7) * Y
+// Selling profit of Z: Profit_Z = (20 - 9) * Z
+// Selling profit of W: Profit_W = (25 - 11) * W
+// Selling profit of V: Profit_V = (30 - 13) * V
+// So, the objective function is: Maximize (Profit_X + Profit_Y + Profit_Z + Profit_W + Profit_V) / (2 * X + 3 * Y + 4 * Z + 5 * W + 6 * V)
+
+## Generate Constraint-1:
+The company has $900 available for material costs next week.
+// 5 * X + 7 * Y + 9 * Z + 11 * W + 13 * V <= 900
+
+## Generate Constraint-2:
+The company wants to produce at least 10 units of each widget next week.
+// X >= 10; Y >= 10; Z >= 10; W >= 10; V >= 10
+
+## Generate Constraint-3:
+The company wants to spend at most 200 hours on production next week.
+// 2 * X + 3 * Y + 4 * Z + 5 * W + 6 * V <= 200
+
+## Generate Constraint-4:
+The company wants to ensure that the total production of Widget W does not exceed the combined production of Widgets X, Y, and Z.
+// W <= X + Y + Z
+```
+
+```question
+A company produces five types of widgets: X, Y, Z, W, and V. The company needs to determine how many units of each widget to produce in next week. The selling price, material cost, and production time for each widget are given in the following Table.
+
+| Widget | Selling Price | Material Cost | Production Time |
+|--------|---------------|---------------|-----------------|
+| X      | 10$           | 5$            | 2 hours         |
+| Y      | 15$           | 7$            | 3 hours         |
+| Z      | 20$           | 9$            | 4 hours         |
+| W      | 25$           | 11$           | 5 hours         |
+| V      | 30$           | 13$           | 6 hours         |
+
+The company has $900 available for material costs next week. The company wants to produce at least 10 units of each widget next week. The company wants to spend at most 200 hours on production next week. The company wants to ensure that the total production of Widget W does not exceed the combined production of Widgets X, Y, and Z. The company has only one production line and can only produce one widget at a time. 
+Please help the company to maximize the rate at which it earns profits (which is defined as the sum of the selling profit divided by the sum of the production times).
+```
+
+
+[Follow the Example to Convert the following Scenario to a Question with table]:

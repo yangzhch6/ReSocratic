@@ -1,0 +1,1 @@
+Please follow the scenario examples to generate a [New Scenario] with a new background. The scenario should be a real-world linear optimization problem. Make sure that the mathematical logic in [New Scenario] is correct.

@@ -1,0 +1,97 @@
+[Example-1]:
+```question
+A bakery specializes in producing two types of cakes: chocolate and vanilla. The bakery needs to decide how many of each type of cake to produce daily to maximize profit while considering the availability of ingredients and the minimum daily production requirement. The profit from each chocolate cake is $5, and from each vanilla cake is $4. The bakery aims to maximize its daily profit from cake sales. Each chocolate cake requires 2 eggs, and each vanilla cake requires 1 egg. The bakery has a daily supply of 100 eggs. Please help the bakery determine the optimal number of chocolate and vanilla cakes to produce daily.
+```
+
+```python
+import math
+import pyscipopt
+
+# Create a new model
+model = pyscipopt.Model()
+
+# Define variables
+## The number of each type of cake to produce daily
+Choc = model.addVar(vtype="INTEGER", name="Choc", lb=0) # number of chocolate cakes
+Van = model.addVar(vtype="INTEGER", name="Van", lb=0) # number of vanilla cakes
+
+# Define objective function
+## set objective as a variable
+obj = model.addVar('obj')
+model.setObjective(obj, "maximize")
+model.addCons(obj == 5*Choc + 4*Van)
+
+# Add constraints
+## Each chocolate cake requires 2 eggs, and each vanilla cake requires 1 egg. The bakery has a daily supply of 100 eggs.
+model.addCons(2*Choc + Van <= 100)
+
+# Solve the problem
+model.optimize()
+
+# Print the optimal solution (value of the variables & the objective)
+print('-'*10)
+if model.getStatus() == "optimal":
+    print("Number of chocolate cakes: ", model.getVal(Choc))
+    print("Number of vanilla cakes: ", model.getVal(Van))
+    print("Maximized Daily Profit: ", model.getObjVal())
+else:
+    print("The problem could not be solved to optimality.")
+```
+
+
+[Example-2]:
+```question
+A company produces three types of widgets: X, Y, and Z. The company needs to determine how many units of each widget to produce in next week.
+For Widget X, the selling price is 10$, the material cost is 5$, and the production time is 2 hours. 
+For Widget Y, the selling price is 15$, the material cost is 7$, and the production time is 3 hours. 
+For Widget Z, the selling price is 20$, the material cost is 9$, and the production time is 4 hours.
+The company has $500 available for material costs next week. The company wants to produce at least 10 units of each widget next week. The company wants to spend at most 200 hours on production next week. The company has only one production line and can only produce one widget at a time. Please help the company to maximize the rate at which it earns profits (which is defined as the sum of the selling profit divided by the sum of the production times).
+```
+
+```python
+import math
+import pyscipopt
+
+# Create a new model
+model = pyscipopt.Model()
+
+# Define variables
+## The company wants to produce at least 10 units of each widget next week.
+X = model.addVar(vtype="INTEGER", name="X", lb=10) # number of units of widget X
+Y = model.addVar(vtype="INTEGER", name="Y", lb=10) # number of units of widget Y
+Z = model.addVar(vtype="INTEGER", name="Z", lb=10) # number of units of widget Z
+
+# Define objective function
+## set objective as a variable (pyscipopt does not support non-linear objective)
+obj = model.addVar('obj')
+model.setObjective(obj, "maximize")
+Profit_X = (10 - 5) * X
+Profit_Y = (15 - 7) * Y
+Profit_Z = (20 - 9) * Z
+ProductionTime = 2 * X + 3 * Y + 4 * Z
+## the objective function is: Maximize (Profit_X + Profit_Y + Profit_Z) / ProductionTime
+## convert the division to multiplication
+model.addCons(obj * ProductionTime == Profit_X + Profit_Y + Profit_Z)
+
+# Add constraints
+## The company has $500 available for material costs next week.
+model.addCons(5 * X + 7 * Y + 9 * Z <= 500)
+## The company wants to spend at most 200 hours on production next week.
+model.addCons(2 * X + 3 * Y + 4 * Z <= 200)
+
+# Solve the problem
+model.optimize()
+
+# Print the optimal solution (value of the variables & the objective)
+print('-'*10)
+if model.getStatus() == "optimal":
+    print("Number of Widget X: ", model.getVal(X))
+    print("Number of Widget Y: ", model.getVal(Y))
+    print("Number of Widget Z: ", model.getVal(Z))
+    print("Maximized Profit Rate: ", model.getObjVal())
+else:
+    print("The problem could not be solved to optimality.")
+```
+
+
+[Follow the examples to solve the given question]:

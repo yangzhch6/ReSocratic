@@ -1,0 +1,24 @@
+[Scenario Format]:
+## Define Variables:
+natural language description.
+// formal definition of variables (integer, real, binary, etc.) and their domains.
+
+## Define Objective Function:
+natural language description.
+// formal definition of a **nonlinear** objective function, maximize or minimize something. There can only be one objective.
+
+## Generate Constraint-1:
+natural language description.
+// formal definition of constraint-1
+
+...
+
+## Generate Constraint-n:
+natural language description.
+// formal definition of constraint-n
+
+
+{}
+
+
+[New Scenario]:

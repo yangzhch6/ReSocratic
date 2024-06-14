@@ -1,0 +1,32 @@
+[Code Template]:
+```python
+import math
+import pyscipopt
+
+# Create a new model
+model = pyscipopt.Model()
+
+# Define variables
+...
+
+# Define objective function
+## set objective as a variable (pyscipopt does not support non-linear objective)
+obj = model.addVar('obj')
+model.setObjective(obj, "...") # "maximize" or "minimize"
+model.addCons(obj == ...) # obj function as a constraint
+
+# Add constraints
+...
+
+# Solve the problem
+model.optimize()
+
+# Print the optimal solution (value of the variables & the objective)
+print('-'*10)
+if model.getStatus() == "optimal":
+    ...
+else:
+    print("The problem could not be solved to optimality.")
+```
+
+[Follow the code template to solve the given question, your code should be enclosed in ```python\n{}```]:
