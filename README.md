@@ -28,7 +28,16 @@ We propose a high-quality benchmark named **E-OPT** for optimization problems wi
 We show performance on our E-OPT benchmark for different LLMs. The results are shown in the table below. The code pass rate is the percentage of the code that successfully executes.
 
 
-<table border-collapse="collapse">
+
+<style>
+table{
+    border-collapse: collapse;
+}
+
+</style>
+
+
+<table>
 <tr>
 <th>Model</th> <th>Linear w/ Table</th> <th>Linear w/o Table</th> <th>Nonlinear w/ Table</th> <th>Nonlinear w/o Table</th> <th>All</th> <th>Code Pass</th>
 </tr>
