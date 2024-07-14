@@ -28,14 +28,6 @@ We propose a high-quality benchmark named **E-OPT** for optimization problems wi
 We show performance on our E-OPT benchmark for different LLMs. The results are shown in the table below. The code pass rate is the percentage of the code that successfully executes.
 
 
-
-<style>
-table{
-    border-collapse: collapse;
-}
-</style>
-
-
 <table>
 <tr>
 <th>Model</th> <th>Linear w/ Table</th> <th>Linear w/o Table</th> <th>Nonlinear w/ Table</th> <th>Nonlinear w/o Table</th> <th>All</th> <th>Code Pass</th>
@@ -44,13 +36,13 @@ table{
 <td colspan=7 align="center" bgcolor=#4C4C4C><b><i>Zero-shot Prompt</i></b></td>
 </tr>
 <tr>
-<td>Llama-3-8B-Instruct</td> <td>0.29%</td> <td>0.0%</td> <td>0.0%</td> <td>0.0%</td> <td>0.17%</td> <td>8.8%</td>
+<td>`Llama-3-8B-Instruct`</td> <td>0.29%</td> <td>0.0%</td> <td>0.0%</td> <td>0.0%</td> <td>0.17%</td> <td>8.8%</td>
 </tr>
 <tr>
-<td>GPT-3.5-Turbo</td> <td>37.5%</td> <td>68.1%</td> <td>16.0%</td> <td>19.5%</td> <td>49.1%</td> <td>85.0%</td>
+<td>`GPT-3.5-Turbo`</td> <td>37.5%</td> <td>68.1%</td> <td>16.0%</td> <td>19.5%</td> <td>49.1%</td> <td>85.0%</td>
 </tr>
 <tr>
-<td>Llama-3-70B-Instruct</td> <td>50.0%</td> <td><b>76.9%</b></td> <td>32.0%</td> <td>30.8%</td> <td>59.5%</td> <td>86.8%</td>
+<td>`Llama-3-70B-Instruct`</td> <td>50.0%</td> <td><b>76.9%</b></td> <td>32.0%</td> <td>30.8%</td> <td>59.5%</td> <td>86.8%</td>
 </tr>
 <tr>
 <td>DeepSeek-V2</td> <td>27.5%</td> <td>40.4%</td> <td>18.0%</td> <td>29.3%</td> <td>34.4%</td> <td>74.0%</td>
