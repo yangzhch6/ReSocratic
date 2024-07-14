@@ -28,53 +28,53 @@ We propose a high-quality benchmark named **E-OPT** for optimization problems wi
 We show performance on our E-OPT benchmark for different LLMs. The results are shown in the table below. The code pass rate is the percentage of the code that successfully executes.
 
 
-<table>
-<tr>
-<th>Model</th> <th>Linear w/ Table</th> <th>Linear w/o Table</th> <th>Nonlinear w/ Table</th> <th>Nonlinear w/o Table</th> <th>All</th> <th>Code Pass</th>
+<table align="center">
+<tr align="center">
+<th align="center">Model</th> <th>Linear w/ Table</th> <th>Linear w/o Table</th> <th>Nonlinear w/ Table</th> <th>Nonlinear w/o Table</th> <th>All</th> <th>Code Pass</th>
 </tr>
-<tr>
+<tr align="center">
 <td colspan=7 align="center" bgcolor=#4C4C4C><b><i>Zero-shot Prompt</i></b></td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>Llama-3-8B-Instruct</code></td> <td>0.29%</td> <td>0.0%</td> <td>0.0%</td> <td>0.0%</td> <td>0.17%</td> <td>8.8%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>GPT-3.5-Turbo</code></td> <td>37.5%</td> <td>68.1%</td> <td>16.0%</td> <td>19.5%</td> <td>49.1%</td> <td>85.0%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>Llama-3-70B-Instruct</code></td> <td>50.0%</td> <td><b>76.9%</b></td> <td>32.0%</td> <td>30.8%</td> <td>59.5%</td> <td>86.8%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>DeepSeek-V2</code></td> <td>27.5%</td> <td>40.4%</td> <td>18.0%</td> <td>29.3%</td> <td>34.4%</td> <td>74.0%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>GPT-4</code></td> <td><b>62.5%</b></td> <td>75.4%</td> <td><b>32.0%</b></td> <td><b>42.1%</b></td> <td><b>62.8%</b></td> <td><b>88.8%</b></td>
 </tr>
-<tr>
+<tr align="center">
 <td colspan=7 align="center" bgcolor=#4C4C4C><b><i>Few-shot Prompt</i></b></td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>Llama-3-8B-Instruct</code></td> <td>2.5%</td> <td>17.8%</td> <td>8.0%</td> <td>11.3%</td> <td>13.6%</td> <td>26.9%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>GPT-3.5-Turbo</code></td> <td>40.0%</td> <td>75.4%</td> <td>26.0%</td> <td>28.6%</td> <td>56.4%</td> <td><b>93.2%</b></td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>Llama-3-70B-Instruct</code></td> <td>57.5%</td> <td>79.2%</td> <td>32.0%</td> <td>33.8%</td> <td>62.5%</td> <td>91.2%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>DeepSeek-V2</code></td> <td>56.3%</td> <td>79.5%</td> <td>32.0%</td> <td>27.1%</td> <td>61.0%</td> <td>85.5%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>GPT-4</code></td> <td><b><u>71.3%</u></b></td> <td><b><u>80.7%</u></b></td> <td><b>34.0%</b></td> <td><b><u>34.6%</u></b></td> <td><b><u>65.5%</u></b></td> <td>88.3%</td>
 </tr>
-<tr>
+<tr align="center">
 <td colspan=7 align="center" bgcolor=#4C4C4C><b><i>SFT with Synthetic Data</i></b></td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>Llama-2-7B-Chat</code></td> <td>11.3%</td> <td>40.6%</td> <td>32.0%</td> <td>15.8%</td> <td>30.6%</td> <td>93.7%</td>
 </tr>
-<tr>
+<tr align="center">
 <td><code>Llama-3-8B-Instruct</code></td> <td><b>32.5%</b></td> <td><b>63.5%</b></td> <td><b><u>44.0%</u></b></td> <td><b>33.0%</b></td> <td><b>51.1%</b></td> <td><b>96.3%</b></td>
 </tr>
 </table>
