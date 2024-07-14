@@ -33,7 +33,6 @@ We show performance on our E-OPT benchmark for different LLMs. The results are s
 table{
     border-collapse: collapse;
 }
-
 </style>
 
 
