@@ -120,13 +120,12 @@ pip install -r requirements.txt
 ```
 
 
-## Evaluation 
-Eval GPT
+## Evaluation in Zero-shot and Few-shot Settings
+Eval GPT 
 ```
 python gpt_baseline.py 
     --model_name "gpt-4" or "gpt-3.5-turbo" 
     --prompt_path "prompt/solve/scip_zeroshot.txt" or "prompt/solve/scip_fewshot.txt"
-
 ```
 
 Eval Llama
@@ -141,7 +140,7 @@ CUDA_VISIBLE_DEVICES=0,1 python llama{2/3}_baseline.py \
 
 
 
-## Synthesis
+## Synthesis Process of ReSocratic
 
 Synthesize scenarios
 ```
