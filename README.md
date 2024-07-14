@@ -12,17 +12,28 @@ This repository contains the code and data for the paper [Benchmarking Large Lan
 
 
 ## E-OPT Benchmark
-![](imgs/dataset.jpg)
+We propose a high-quality benchmark named **E-OPT** for optimization problems with complex samples in multiple forms. As far as we know, this is the first large-scale benchmark to measure the model’s end-to-end solving ability in optimization problems including nonlinear and tabular data. E-OPT features linear programming (linear), non-linear optimization problems (non-linear), and table content as in industrial use (table), resulting in a comprehensive and versatile benchmark for LLM optimization problem-solving.
 
-We propose a high-quality benchmark named **E-OPT** for optimization problems with complex samples in multiple forms. As far as we know, this is the first large-scale benchmark to measure the model’s end-to-end solving ability in optimization problems including nonlinear and tabular data. 
+![](imgs/dataset.jpg)
 
 *A initial version of this benchmark serves as a competition track of [ICML 2024 AI4MATH Workshop](https://www.codabench.org/competitions/2438/)*
 
 
 
 ## ReSocratic Synthesis
-![](imgs/resocratic.jpg)
+We introduce **ReSocratic**, a novel data synthesis method for eliciting diverse and reliable data. The main idea of ReSocratic is to synthesize an optimization problem with step-by-step generation in a reverse manner from our elaborate scenarios to questions.
 
+![](imgs/resocratic.jpg)
+**(a)** The forward data synthesis method is to synthesize the question first, and then let the
+LLM generate the answer to the synthetic question. **(b)** In contrast, the reverse data synthesis method
+we propose, ReSocratic, first synthesizes carefully designed formatted scenarios, and then transforms
+the synthesized scenarios into code (answers) and questions. **(c)** Our carefully designed scenarios are
+structured in a step-by-step manner, with each step containing a natural language description as well
+as the corresponding formalized mathematical content. Starting from the third step of the synthetic
+scenario, each subsequent step is transformed into a question-code pair.
+
+
+We synthesize the <i>**ReSocratic-29k**</i> dataset with 29k samples by using our ReSocratic. The synthetic data can be seen in the `synthetic_data` folder.
 
 ## Performance on E-OPT Benchmark
 We show performance on our E-OPT benchmark for different LLMs. The results are shown in the table below. The code pass rate is the percentage of the code that successfully executes.
