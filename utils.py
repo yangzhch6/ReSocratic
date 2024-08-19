@@ -24,7 +24,7 @@ def load_json(file_path):
 
 
 def worker_chat(messages, model_name, max_tokens, temperature, stop):
-    client = OpenAI(api_key="sk-adaf51b35486407985a54dd474714af3", base_url="https://api.deepseek.com")
+    client = OpenAI(api_key="your key here.", base_url="https://api.deepseek.com")
     while True:
         try:
             response = client.chat.completions.create(
@@ -63,7 +63,7 @@ def make_chat_request_deepseek(model_name, messages, n, max_tokens=2000, stop=No
         response_text_list = [response.choices[0].message.content for response in response_list]    
 
     else:
-        client = OpenAI(api_key="put your token here", base_url="https://api.deepseek.com")
+        client = OpenAI(api_key="your key here.", base_url="https://api.deepseek.com")
         response_list = []
         response_text_list = []
         for _ in range(n):
@@ -91,7 +91,7 @@ def make_chat_request_hkust(model_name, dialogue_history, n, max_tokens=4000, st
     url = "https://gpt-api.hkust-gz.edu.cn/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "put your token here"
+        "Authorization": "your key here",
     }
     data = {
         "model": model_name,
