@@ -1,4 +1,4 @@
-# BeOptiBench Meets ReSocratic: Measure and Improve LLMs for Optimization Modeling
+# OptiBench Meets ReSocratic: Measure and Improve LLMs for Optimization Modeling
 
 This repository contains the code and data for the paper [OptiBench Meets ReSocratic: Measure and Improve LLMs for Optimization Modeling](https://arxiv.org/pdf/2407.09887v2). In this work, we propose a new benchmark (**OptiBench**) for evaluating the performance of large language models (LLMs) on optimization modeling tasks. Furthermore, to alleviate the data scarcity for optimization problems, and to bridge the gap between open-source LLMs on a small scale (e.g., Llama-2-7b and Llama-3-8b) and closedsource LLMs (e.g., GPT-4), we further propose a novel data synthesis method namely **ReSocratic**. Experimental results show that the our ReSocratic significantly improves the performance of solving optimization problems.
 
