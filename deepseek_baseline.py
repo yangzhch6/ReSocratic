@@ -99,7 +99,7 @@ if __name__ == "__main__":
         line = eval_data[index]
 
         few_shot_dialog = construct_few_shot_dialog(prompt, line["question"])
-        responses = make_chat_request_deepseek(args.model_name, few_shot_dialog, 1, temperature=0, sleep=1, parallel=False)
+        responses = make_chat_request_deepseek(args.model_name, few_shot_dialog, 1, temperature=0, sleep=1, parallel=False, max_tokens=2048)
 
         response_code = match_response_code(responses[0])
 
@@ -129,7 +129,7 @@ if __name__ == "__main__":
                 few_shot_dialog_numercial = copy.deepcopy(few_shot_dialog)
                 few_shot_dialog_numercial.append({"role": "user", "content": numercial_query_k})
 
-                numercial_responses = make_chat_request_deepseek(args.model_name, few_shot_dialog_numercial, 1, temperature=0, sleep=1, parallel=False)
+                numercial_responses = make_chat_request_deepseek(args.model_name, few_shot_dialog_numercial, 1, temperature=0, sleep=1, parallel=False, max_tokens=512)
                 numercial_response = numercial_responses[0]
                 numercial_response_answer = match_numercial_value(numercial_response)
                 print(Fore.GREEN + line_query + ": " + numercial_response + Style.RESET_ALL)

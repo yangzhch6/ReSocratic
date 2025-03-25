@@ -38,8 +38,8 @@ def run_code(code, timelimit=3):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_name_or_path", type=str, default="/hpc2hdd/JH_DATA/share/xingjiantao/xingjiantao_llama3/Llama-3-8B-Instruct-hf/")
-    parser.add_argument("--data_path", type=str, default="data/test_v1.json")
+    parser.add_argument("--model_name_or_path", type=str, default="...")
+    parser.add_argument("--data_path", type=str, default="data/OptiBench.json")
     parser.add_argument("--gencode_path", type=str, default="eval_results/optcode_llama3_8b_instruct_sft.json")
     parser.add_argument("--output_path", type=str, default="eval_results/llama3_8b_instruct_sft.json")
     parser.add_argument("--tensor_parallel_size", type=int, default=1)
@@ -55,8 +55,8 @@ if __name__ == "__main__":
     assert len(eval_data) == len(gencode_data)
 
     # load model
-    sampling_params = SamplingParams(temperature=0, max_tokens=3000, stop=["<|eot_id|>"])
-    resulting_params = SamplingParams(temperature=0, max_tokens=3000, stop=["* ", "<|eot_id|>"])
+    sampling_params = SamplingParams(temperature=0, max_tokens=2048, stop=["<|eot_id|>"])
+    resulting_params = SamplingParams(temperature=0, max_tokens=512, stop=["* ", "<|eot_id|>"])
     llm = LLM(model=args.model_name_or_path, tensor_parallel_size=args.tensor_parallel_size)
 
     # set prompt template

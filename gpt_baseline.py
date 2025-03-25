@@ -48,9 +48,9 @@ def construct_few_shot_dialog(prompt, question):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_name", type=str, default="gpt-4") # deepseek-v2 chat
+    parser.add_argument("--model_name", type=str, default="gpt-4o") # deepseek-v2 chat
 
-    parser.add_argument("--data_path", type=str, default="data/e-opt.json")
+    parser.add_argument("--data_path", type=str, default="data/OptiBench.json")
     parser.add_argument("--output_path", type=str, default="eval_results/{}_fewshot.json")
     parser.add_argument("--prompt_path", type=str, default="prompt/solve/scip_fewshot.txt")
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
         zero_shot_dialog = construct_zero_shot_dialog(line["question"])
 
         llm_response_code = make_chat_request_hkust(
-            args.model_name, few_shot_dialog, n=1, temperature=0, sleep=1, max_tokens=4000
+            args.model_name, few_shot_dialog, n=1, temperature=0, sleep=1, max_tokens=2048
         )[0]
         
         llm_match_response_code = match_response_code(llm_response_code)
@@ -116,7 +116,7 @@ if __name__ == "__main__":
                 zero_shot_dialog_numercial.append({"role": "user", "content": numercial_query_k})
 
                 numercial_response = make_chat_request_hkust(
-                    args.model_name, zero_shot_dialog_numercial, n=1, temperature=0, sleep=1, max_tokens=1000
+                    args.model_name, zero_shot_dialog_numercial, n=1, temperature=0, sleep=1, max_tokens=512
                 )[0]
                 numercial_response_answer = match_numercial_value(numercial_response)
                 print(Fore.GREEN + line_query + ": " + numercial_response + Style.RESET_ALL)

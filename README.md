@@ -53,13 +53,25 @@ We show performance on our OptiBench benchmark for different LLMs. The results a
 <td><code>Llama-3-70B-Instruct</code></td> <td>50.0%</td> <td><b>76.9%</b></td> <td>32.0%</td> <td>30.8%</td> <td>59.5%</td> <td>86.8%</td>
 </tr>
 <tr align="center">
+<td><code>Mistral-7B-Instruct-v0.3 </code></td> <td>0.0%</td> <td>0.6%</td> <td>0.0%</td> <td>0.0%</td> <td>0.3%</td> <td>6.9%</td>
+</tr>
+<tr align="center">
+<td><code>Qwen2-7b-Instruct </code></td> <td>0.0%</td> <td>3.5%</td> <td>0.0%</td> <td>3.0%</td> <td>2.6%</td> <td>19.2%</td>
+</tr>
+<tr align="center">
 <td><code>DeepSeek-V2</code></td> <td>27.5%</td> <td>40.4%</td> <td>18.0%</td> <td>29.3%</td> <td>34.4%</td> <td>74.0%</td>
+</tr>
+<tr align="center">
+<td><code>DeepSeek-V2.5</code></td> <td>67.5%</td> <td>78.4%</td> <td>24.0%</td> <td>33.1%</td> <td>62.5%</td> <td>92.7%</td>
 </tr>
 <tr align="center">
 <td><code>GPT-3.5-Turbo</code></td> <td>37.5%</td> <td>68.1%</td> <td>16.0%</td> <td>19.5%</td> <td>49.1%</td> <td>85.0%</td>
 </tr>
 <tr align="center">
-<td><code>GPT-4</code></td> <td><b>62.5%</b></td> <td>75.4%</td> <td><b>32.0%</b></td> <td><b>42.1%</b></td> <td><b>62.8%</b></td> <td><b>88.8%</b></td>
+<td><code>GPT-4</code></td> <td>62.5%</td> <td>75.4%</td> <td>32.0%</td> <td>42.1%</td> <td>62.8%</td> <td>88.8%</td>
+</tr>
+<tr align="center">
+<td><code>GPT-4o</code></td> <td><b>65.0%</b></td> <td><b>78.1%</b></td> <td><b>40.0%</b></td> <td><b>45.9%</b></td> <td><b>66.1%</b></td> <td><b>90.1%</b></td>
 </tr>
 <tr align="center">
 <td colspan=7 align="center" bgcolor=#4C4C4C><b><i>Few-shot Prompt</i></b></td>
@@ -71,13 +83,25 @@ We show performance on our OptiBench benchmark for different LLMs. The results a
 <td><code>Llama-3-70B-Instruct</code></td> <td>57.5%</td> <td>79.2%</td> <td>32.0%</td> <td>33.8%</td> <td>62.5%</td> <td>91.2%</td>
 </tr>
 <tr align="center">
+<td><code>Mistral-7B-Instruct-v0.3</code></td> <td>23.8%</td> <td>40.0%</td> <td>18.0%</td> <td>13.5%</td> <td>27.9%</td> <td>83.8%</td>
+</tr>
+<tr align="center">
+<td><code>Qwen2-7b-Instruct </code></td> <td>27.5%</td> <td>65.5%</td> <td>14.0%</td> <td>18.8%</td> <td>46.0%</td> <td>87.6%</td>
+</tr>
+<tr align="center">
 <td><code>DeepSeek-V2</code></td> <td>56.3%</td> <td>79.5%</td> <td>32.0%</td> <td>27.1%</td> <td>61.0%</td> <td>85.5%</td>
+</tr>
+<tr align="center">
+<td><code>DeepSeek-V2.5</code></td> <td>71.3%</td> <td>79.5%</td> <td>48.0%</td> <td>40.6%</td> <td>67.3%</td> <td>91.2%</td>
 </tr>
 <tr align="center">
 <td><code>GPT-3.5-Turbo</code></td> <td>40.0%</td> <td>75.4%</td> <td>26.0%</td> <td>28.6%</td> <td>56.4%</td> <td><b>93.2%</b></td>
 </tr>
 <tr align="center">
-<td><code>GPT-4</code></td> <td><b><u>71.3%</u></b></td> <td><b><u>80.7%</u></b></td> <td><b>34.0%</b></td> <td><b><u>34.6%</u></b></td> <td><b><u>65.5%</u></b></td> <td>88.3%</td>
+<td><code>GPT-4</code></td> <td><b><u>71.3%</u></b></td> <td>80.7%</td> <td>34.0%</td> <td>34.6%</td> <td>65.5%</td> <td>88.3%</td>
+</tr>
+<tr align="center">
+<td><code>GPT-4o</code></td> <td>63.8%</td> <td><b><u>81.0%</u></b></td> <td><b><u>50.0%</u></b></td> <td><b><u>50.4%</u></b></td> <td><b><u>69.4%</u></b></td> <td><b>91.7%</b></td>
 </tr>
 <tr align="center">
 <td colspan=7 align="center" bgcolor=#4C4C4C><b><i>SFT with Synthetic Data</i></b></td>
@@ -86,7 +110,7 @@ We show performance on our OptiBench benchmark for different LLMs. The results a
 <td><code>Llama-2-7B-Chat</code></td> <td>11.3%</td> <td>40.6%</td> <td>32.0%</td> <td>15.8%</td> <td>30.6%</td> <td>93.7%</td>
 </tr>
 <tr align="center">
-<td><code>Llama-3-8B-Instruct</code></td> <td><b>32.5%</b></td> <td><b>63.5%</b></td> <td><b><u>44.0%</u></b></td> <td><b>33.0%</b></td> <td><b>51.1%</b></td> <td><b>96.3%</b></td>
+<td><code>Llama-3-8B-Instruct</code></td> <td><b>32.5%</b></td> <td><b>63.5%</b></td> <td><b>44.0%</b></td> <td><b>33.0%</b></td> <td><b>51.1%</b></td> <td><b>96.3%</b></td>
 </tr>
 </table>
 

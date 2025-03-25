@@ -35,13 +35,12 @@ def run_code(code, timelimit=20):
         else:
             return True, output.decode('utf-8')
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_name_or_path", type=str, default="/hpc2hdd/JH_DATA/share/xingjiantao/xingjiantao_llama3/Llama-3-8B-Instruct-hf/")
-    parser.add_argument("--data_path", type=str, default="data/test_v1.json")
+    parser.add_argument("--model_name_or_path", type=str, default=".....")
+    parser.add_argument("--data_path", type=str, default="data/OptiBench.json")
     parser.add_argument("--prompt_path", type=str, default="prompt/solve/scip_fewshot.txt")
-    parser.add_argument("--output_path", type=str, default="eval_results/llama3_8b_instruct_fewshot.json")
+    parser.add_argument("--output_path", type=str, default="eval_results/Mistral-7B_instruct_fewshot.json")
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--tensor_parallel_size", type=int, default=1)
     args = parser.parse_args()
@@ -50,8 +49,8 @@ if __name__ == "__main__":
     eval_data = load_json(args.data_path)
 
     # load model
-    sampling_params = SamplingParams(temperature=0, max_tokens=1000, stop=["<|eot_id|>"])
-    resulting_params = SamplingParams(temperature=0, max_tokens=1000, stop=["<|eot_id|>"])
+    sampling_params = SamplingParams(temperature=0, max_tokens=2048, stop=["<|eot_id|>"])
+    resulting_params = SamplingParams(temperature=0, max_tokens=500, stop=["<|eot_id|>", "*"])
     llm = LLM(model=args.model_name_or_path, tensor_parallel_size=args.tensor_parallel_size)
 
     # set prompt template
@@ -60,6 +59,7 @@ if __name__ == "__main__":
     ]
     DIALOG_FEW_SHOT_PROMPT = [
         {"role": "system", "content": "Please follow the given examples and use python code to solve the given question."},
+        # {"role": "system", "content": "Please follow the given examples to solve the given question."}, ## for few-shot prompt v2
     ]
     with open(args.prompt_path, "r") as f:
         prompt_template = f.read()
@@ -80,6 +80,9 @@ if __name__ == "__main__":
         
         query_batch = [dialog_to_text_llama3(dialog) for dialog in source_dialogs]
         llm_code_batch = llm.generate(query_batch, sampling_params)
+        
+        print(llm_code_batch[0].outputs[0].text)
+        print("-"*40)
 
         # acquire code
         llm_code_batch = [match_response_code(line.outputs[0].text.strip()) for line in llm_code_batch]
@@ -121,8 +124,10 @@ if __name__ == "__main__":
 
                 for key in llm_results_dict:
                     numercial_query_result = numercial_query + "* {}:".format(key)
-                    llm_results_dict[key] = llm.generate([numercial_query_result], resulting_params)[0].outputs[0].text.strip()
+                    llm_results_dict[key] = match_numercial_value(llm.generate([numercial_query_result], resulting_params)[0].outputs[0].text.strip())
+                    print(Fore.GREEN + key + ": " + llm_results_dict[key] + Style.RESET_ALL)
                 llm_output_results_dict.append(llm_results_dict)
+                print("-"*40)
 
                 line_correct = True
                 for key in llm_results_dict:

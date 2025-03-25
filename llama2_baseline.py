@@ -39,7 +39,7 @@ def run_code(code, timelimit=20):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name_or_path", type=str, default="")
-    parser.add_argument("--data_path", type=str, default="data/e-opt.json")
+    parser.add_argument("--data_path", type=str, default="data/OptiBench.json")
     parser.add_argument("--prompt_path", type=str, default="prompt/solve/scip_fewshot.txt")
     parser.add_argument("--output_path", type=str, default="")
     parser.add_argument("--batch_size", type=int, default=8)
@@ -50,8 +50,8 @@ if __name__ == "__main__":
     eval_data = load_json(args.data_path)
 
     # load model
-    sampling_params = SamplingParams(temperature=0, max_tokens=1000)
-    resulting_params = SamplingParams(temperature=0, max_tokens=1000)
+    sampling_params = SamplingParams(temperature=0, max_tokens=2048)
+    resulting_params = SamplingParams(temperature=0, max_tokens=500)
     llm = LLM(model=args.model_name_or_path, tensor_parallel_size=args.tensor_parallel_size)
 
     # set prompt template
